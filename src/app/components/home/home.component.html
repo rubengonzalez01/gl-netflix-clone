@@ -1,0 +1,32 @@
+<div class="home" style="margin-top: 25rem;">
+    <app-slider 
+      *ngIf="trending" 
+      title="Trending" 
+      [movies]="trending" 
+      [sliderConfig]="sliderConfig">
+    </app-slider>
+    <app-slider 
+      *ngIf="topRated" 
+      title="Top Rated" 
+      [movies]="topRated" 
+      [sliderConfig]="sliderConfig">
+    </app-slider>
+    <app-slider 
+      *ngIf="nowPlaying" 
+      title="Now Playing" 
+      [movies]="nowPlaying" 
+      [sliderConfig]="sliderConfig">
+    </app-slider>
+    <app-slider 
+      *ngIf="originals" 
+      title="Originals" 
+      [movies]="originals" 
+      [sliderConfig]="sliderConfig">
+    </app-slider>
+    <app-slider 
+      *ngIf="popular" 
+      title="Popular" 
+      [movies]="popular" 
+      [sliderConfig]="sliderConfig">
+    </app-slider>
+</div>

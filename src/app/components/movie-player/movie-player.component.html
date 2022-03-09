@@ -1,0 +1,19 @@
+<div class="movie-player">
+    <button class="movie-player__back" (click)="goBack()">
+        <span class="material-icons">west</span>           
+    </button>
+    <div class="movie-player__video">
+        <div #youTubePlayer class="movie-player__youtube-player">
+            <!-- <h1 class="movie-player__title">{{ movie.title ? movie.title : movie.name }}</h1>         -->
+            <section>        
+                <youtube-player 
+                    [videoId]="movieKey"
+                    [playerVars]="playerConfig"
+                    suggestedQuality="highres"
+                    [width]="videoWidth" 
+                    [height]="videoHeight">
+                </youtube-player>
+            </section>        
+         </div>
+    </div>
+</div>

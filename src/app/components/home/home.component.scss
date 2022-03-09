@@ -1,0 +1,10 @@
+.home{
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 20px;
+    position: relative;
+
+    &::-webkit-scrollbar{
+        display: none;
+    }    
+}
