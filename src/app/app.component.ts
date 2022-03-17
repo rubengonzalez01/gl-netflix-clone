@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { MovieService } from './services/movie.service';
+import { MovieService } from './core/services/movie.service';
 
 @Component({
   selector: 'app-root',

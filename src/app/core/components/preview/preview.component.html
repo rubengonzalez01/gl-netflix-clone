@@ -1,0 +1,85 @@
+<div class="preview">
+    <div class="preview__card" [ngClass]="{active: isActive}">
+        <div class="preview__header"
+          [ngStyle]="{'background-image': 'linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('+bgImage+')'}"
+        >
+          <button (click)="closePreview()" class="preview__action preview__close">
+            <span class="material-icons">
+              close
+            </span>
+          </button>
+          <div class="preview__header-panel">
+            <h2 class="preview__title">{{ movie.title ? movie.title : movie.name }}</h2>
+            <div class="preview__buttons">
+                <button class="preview__play" (click)="getVideo()">
+                    <span class="material-icons">arrow_right</span>
+                    <span>Play</span>
+                </button>
+                <button 
+                  *ngIf="!myList"
+                  (click)="addToList()" 
+                  class="preview__action preview__action--border"
+                  matTooltip="Add to My list" 
+                  matTooltipClass="tooltip-custom">
+                  <span class="material-icons">add</span>
+                </button>
+                <button
+                  *ngIf="myList"
+                  (click)="removeToList()"  
+                  class="preview__action preview__action--border"
+                  matTooltip="Remove from My list" 
+                  matTooltipClass="tooltip-custom">
+                  <span class="material-icons">check</span>
+                </button>
+
+                <button 
+                  *ngIf="!thumbUp"
+                  (click)="setThumbUp(true)"  
+                  class="preview__action preview__action--border"
+                  matTooltip="Like" 
+                  matTooltipClass="tooltip-custom">
+                  <span class="material-icons">thumb_up_off_alt</span>
+                </button>
+                <button 
+                  *ngIf="thumbUp" 
+                  (click)="setThumbUp(false)" 
+                  class="preview__action preview__action--border"
+                  matTooltip="Voted" 
+                  matTooltipClass="tooltip-custom">
+                  <span class="material-icons">thumb_up</span>
+                </button>
+
+                <button
+                  *ngIf="!thumbDown"
+                  (click)="setThumbDown(true)" 
+                  class="preview__action preview__action--border"
+                  matTooltip="It's not for me" 
+                  matTooltipClass="tooltip-custom">
+                  <span class="material-icons">thumb_down_off_alt</span>
+                </button>
+                <button 
+                  *ngIf="thumbDown"
+                  (click)="setThumbDown(false)" 
+                  class="preview__action preview__action--border"
+                  matTooltip="Voted" 
+                  matTooltipClass="tooltip-custom">
+                  <span class="material-icons">thumb_down_alt</span>
+                </button>
+
+              </div>
+          </div>
+        </div>
+        <div class="preview__body">
+            <div class="preview__movie-info">
+              <span>
+                Release date {{ movie.first_air_date ? movie.first_air_date : movie.release_date }} &nbsp; - &nbsp; 
+              </span>
+              <span class="material-icons">star</span>           
+              <span>&nbsp;{{ movie.vote_average }}</span>
+            </div>
+            <div class="preview__description">
+                <span>{{ movie.overview }}</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,33 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { MovieComponent } from './components/movie/movie.component';
-import { TvShowComponent } from './components/tv-show/tv-show.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomeComponent,
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
+    path: 'browse',
+    loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'tvshows',
-    component: TvShowComponent,
+    loadChildren: () => import('./features/tv-show/tv-show.module').then(m => m.TvShowModule)
   },
   {
     path: 'movies',
-    component: MovieComponent,
+    loadChildren: () => import('./features/movie/movie.module').then(m => m.MovieModule)
+  },
+  {
+    path: 'mylist',
+    loadChildren: () => import('./features/my-list/my-list.module').then(m => m.MyListModule)
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'browse',
   },
-
 ];
 
 @NgModule({

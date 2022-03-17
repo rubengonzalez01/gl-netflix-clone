@@ -1,0 +1,20 @@
+.my-list{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 7px;
+    padding: 20px;
+    position: relative;
+
+    &__moviecard{
+        transition: all 0.3s ease;
+    }
+
+    &__moviecard:hover{
+        transform: scale(1.02);
+        cursor: pointer;
+    }
+
+    &__img{
+        border-radius: 5px;
+    }
+}

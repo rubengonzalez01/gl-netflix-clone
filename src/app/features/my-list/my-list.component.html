@@ -1,0 +1,15 @@
+<div class="my-list" style="margin-top: 57vh;">
+    <ng-container *ngIf="movieList.length">
+        <div
+            class="my-list__moviecard"
+            *ngFor="let m of movieList">
+            <img 
+                src="https://image.tmdb.org/t/p/w200{{m?.poster_path}}" 
+                alt="{{ m.title }}" 
+                title="{{ m.title }}"
+                class="my-list__img"
+                (click)="showPreview(m)"
+            >
+        </div>
+    </ng-container>
+</div>
