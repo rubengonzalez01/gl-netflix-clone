@@ -58,18 +58,20 @@ export class MovieService {
   }
 
   async getList(){
-    const url = `${this.v4Url}/list/${this.ListId}?api_key=${this.api_key}`;
-    
-    const list = await fetch(url)
-                  .then( response => response.json())
-                  .then( content => {         
-                    this.movieListObj = content;
-                    if(content.results){
-                      this.setHeaderMovie(content.results[0]);
-                    }
-                    return content.results;
-                  });
-    this.setMovieList(list);
+    if(this.ListId){
+      const url = `${this.v4Url}/list/${this.ListId}?api_key=${this.api_key}`;
+      
+      const list = await fetch(url)
+                    .then( response => response.json())
+                    .then( content => {         
+                      this.movieListObj = content;
+                      if(content.results){
+                        this.setHeaderMovie(content.results[0]);
+                      }
+                      return content.results;
+                    });
+      this.setMovieList(list);
+    }
   }
 
   createList(): void {    
@@ -210,8 +212,11 @@ export class MovieService {
   }
 
   checkMovieList(): boolean {
-    const media = this.movieListObj.results.find( (movie: ResultsEntity) => movie.id === this.activeMovie.id);
-    return media ? true : false;
+    if(this.movieListObj){
+      const media = this.movieListObj.results.find( (movie: ResultsEntity) => movie.id === this.activeMovie.id);
+      return media ? true : false;
+    }
+    return false;
   }
 
   
