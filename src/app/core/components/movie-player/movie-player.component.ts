@@ -1,10 +1,18 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { MovieService } from 'src/app/core/services/movie.service';
 
 @Component({
   selector: 'app-movie-player',
   templateUrl: './movie-player.component.html',
-  styleUrls: ['./movie-player.component.scss']
+  styleUrls: ['./movie-player.component.scss'],
 })
 export class MoviePlayerComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('youTubePlayer') youTubePlayer: ElementRef<HTMLDivElement>;
@@ -16,17 +24,17 @@ export class MoviePlayerComponent implements OnInit, OnDestroy, AfterViewInit {
   playerConfig = {
     controls: 1,
     mute: 0,
-    autoplay: 1
+    autoplay: 1,
   };
 
   constructor(
-      private movieService: MovieService, 
-      private _changeDetectorRef: ChangeDetectorRef) 
-  { }
+    private movieService: MovieService,
+    private _changeDetectorRef: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.movie = this.movieService.activeMovie;
-    this.movieKey = this.movieService.movieKey;    
+    this.movieKey = this.movieService.movieKey;
   }
 
   ngAfterViewInit(): void {
@@ -36,17 +44,19 @@ export class MoviePlayerComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onResize = (): void => {
     // Automatically expand the video to fit the page up to 1200px x 720px
-    this.videoWidth = Math.min(this.youTubePlayer.nativeElement.clientWidth, 1200);
+    this.videoWidth = Math.min(
+      this.youTubePlayer.nativeElement.clientWidth,
+      1200
+    );
     this.videoHeight = this.videoWidth * 0.6;
     this._changeDetectorRef.detectChanges();
-  }
+  };
 
   ngOnDestroy(): void {
     window.removeEventListener('resize', this.onResize);
   }
 
-  goBack(){
+  goBack() {
     this.movieService.setShowMoviePlayer(false);
   }
-
 }

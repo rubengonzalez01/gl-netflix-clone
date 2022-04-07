@@ -4,13 +4,13 @@ import { MyListComponent } from './my-list.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component: MyListComponent
-  }
+    path: '',
+    component: MyListComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class MyListRoutingModule { }
+export class MyListRoutingModule {}

@@ -5,29 +5,30 @@ import { MovieService } from './core/services/movie.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
   subs: Subscription[] = [];
   previewVisible: boolean = false;
   isPlay: boolean = false;
+  title = 'Netflix Clone';
 
-  constructor(private movieService: MovieService){
-
-  }
+  constructor(private movieService: MovieService) {}
 
   ngOnInit(): void {
-    this.subs.push(this.movieService.getShowMoviePreview().subscribe( data => {
-      this.previewVisible = data;
-    }));
-    this.subs.push(this.movieService.getShowMoviePlayer().subscribe( data => {
-      this.isPlay = data;
-    }));
-
+    this.subs.push(
+      this.movieService.getShowMoviePreview().subscribe(data => {
+        this.previewVisible = data;
+      })
+    );
+    this.subs.push(
+      this.movieService.getShowMoviePlayer().subscribe(data => {
+        this.isPlay = data;
+      })
+    );
   }
 
   ngOnDestroy(): void {
-      this.subs.forEach(s => s.unsubscribe());
+    this.subs.forEach(s => s.unsubscribe());
   }
-
 }

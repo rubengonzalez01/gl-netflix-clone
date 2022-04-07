@@ -1,0 +1,66 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "**/tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        //Directive selectors should follow given naming rules.
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        //Component selectors should follow given naming rules.
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],        
+        //Ensures that classes implement lifecycle interfaces corresponding to the declared lifecycle methods.
+        "@angular-eslint/use-lifecycle-interface": [
+          "error"
+        ],
+        //This rule aims to standardize the way class declarations, class expressions, interfaces and type literals are structured and ordered.
+        "@typescript-eslint/member-ordering": 0,
+        //This rule allows you to enforce conventions for any identifier, using granular selectors to create a fine-grained style guide.
+        "@typescript-eslint/naming-convention": 0,
+        "prettier/prettier": [
+          "error", {
+            "endOfLine":"auto"
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}

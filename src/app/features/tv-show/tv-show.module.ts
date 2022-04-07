@@ -8,17 +8,10 @@ import { TvShowRoutingModule } from './tv-show-routing.module';
 // Components
 import { TvShowComponent } from './tv-show.component';
 
-
 @NgModule({
-    declarations: [
-        TvShowComponent
-    ],
-    imports: [
-        SharedModule,
-        TvShowRoutingModule,
-        CommonModule
-    ],
-    providers: [],
-    exports: [],
+  declarations: [TvShowComponent],
+  imports: [SharedModule, TvShowRoutingModule, CommonModule],
+  providers: [],
+  exports: [],
 })
-export class TvShowModule { }
+export class TvShowModule {}

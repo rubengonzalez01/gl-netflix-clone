@@ -1,10 +1,11 @@
-<div class="my-list" style="margin-top: 57vh;">
+<div class="my-list" style="margin-top: 62vh;">
     <ng-container *ngIf="movieList.length">
         <div
             class="my-list__moviecard"
             *ngFor="let m of movieList">
             <img 
-                src="https://image.tmdb.org/t/p/w200{{m?.poster_path}}" 
+                *ngIf="m.poster_path"
+                src="https://image.tmdb.org/t/p/w200{{m.poster_path}}" 
                 alt="{{ m.title }}" 
                 title="{{ m.title }}"
                 class="my-list__img"

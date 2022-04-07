@@ -22,8 +22,14 @@
             font-size: 6rem;
             margin-left: 3rem;
             margin-bottom: 3rem;
-            margin-top: 8rem;
+            margin-top: 3rem;
+            line-height: 7rem;
             color: lightgray;
+        }
+
+        &-info{
+            display: flex;
+            flex-flow: column nowrap;
         }
 
         &-description{
@@ -32,7 +38,6 @@
             color: lightgray;
             margin-bottom: 3rem;
             line-height: 27px;
-            width: 60%;
         }
 
         .header__buttons{

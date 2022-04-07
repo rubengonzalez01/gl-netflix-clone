@@ -9,15 +9,9 @@ import { HomeRoutingModule } from './home-routing.modules';
 import { HomeComponent } from './home.component';
 
 @NgModule({
-    declarations: [
-        HomeComponent
-    ],
-    imports: [
-        SharedModule,
-        HomeRoutingModule,
-        CommonModule,
-    ],
-    providers: [],
-    exports: [],
+  declarations: [HomeComponent],
+  imports: [SharedModule, HomeRoutingModule, CommonModule],
+  providers: [],
+  exports: [],
 })
-export class HomeModule { }
+export class HomeModule {}

@@ -7,7 +7,7 @@ import { GlobalVariables } from '../../shared/global-variables';
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.scss']
+  styleUrls: ['./movie.component.scss'],
 })
 export class MovieComponent implements OnInit, OnDestroy {
   subs: Subscription[] = [];
@@ -18,38 +18,59 @@ export class MovieComponent implements OnInit, OnDestroy {
   trending: Movies;
   upcoming: Movies;
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService) {}
 
   ngOnInit(): void {
-    this.subs.push(this.movieService.getMovies(GlobalVariables.MOVIE_TRENDING, true).subscribe( data => {
-      this.trending = data;
-    }));
-    this.subs.push(this.movieService.getMovies(GlobalVariables.MOVIE_POPULAR).subscribe( data => {
-      this.popular = data;
-    }));
-    this.subs.push(this.movieService.getMovies(GlobalVariables.MOVIE_TOP_RATED).subscribe( data => {
-      this.topRated = data;
-    }));
-    this.subs.push(this.movieService.getMovies(GlobalVariables.MOVIE_NOW_PLAYING).subscribe( data => {
-      this.nowPlaying = data;
-    }));
-    this.subs.push(this.movieService.getMovies(GlobalVariables.MOVIE_UPCOMING).subscribe( data => {
-      this.upcoming = data;
-    }));
+    this.subs.push(
+      this.movieService
+        .getMovies(GlobalVariables.MOVIE_TRENDING, true)
+        .subscribe(data => {
+          this.trending = data;
+        })
+    );
+    this.subs.push(
+      this.movieService
+        .getMovies(GlobalVariables.MOVIE_POPULAR)
+        .subscribe(data => {
+          this.popular = data;
+        })
+    );
+    this.subs.push(
+      this.movieService
+        .getMovies(GlobalVariables.MOVIE_TOP_RATED)
+        .subscribe(data => {
+          this.topRated = data;
+        })
+    );
+    this.subs.push(
+      this.movieService
+        .getMovies(GlobalVariables.MOVIE_NOW_PLAYING)
+        .subscribe(data => {
+          this.nowPlaying = data;
+        })
+    );
+    this.subs.push(
+      this.movieService
+        .getMovies(GlobalVariables.MOVIE_UPCOMING)
+        .subscribe(data => {
+          this.upcoming = data;
+        })
+    );
 
-    this.subs.push(this.movieService.getShowMoviePreview().subscribe( visible => {
-      if(visible){
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = 'visible';
-      }
-    }));
+    this.subs.push(
+      this.movieService.getShowMoviePreview().subscribe(visible => {
+        if (visible) {
+          document.body.style.overflow = 'hidden';
+        } else {
+          document.body.style.overflow = 'visible';
+        }
+      })
+    );
 
-    this.movieService.loadList();
+    this.movieService.loadList(false);
   }
 
   ngOnDestroy(): void {
     this.subs.map(sub => sub.unsubscribe());
   }
-
 }

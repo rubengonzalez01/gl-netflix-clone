@@ -3,8 +3,14 @@
     <div class="header__banner"
         [ngStyle]="{'background-image': 'linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), url('+headerBGUrl+')'}"
     >
-        <h2 *ngIf="headerMovie">{{ headerMovie.title ? headerMovie.title : headerMovie.name }}</h2>  
-        <span class="header__banner-description" *ngIf="headerMovie">{{ headerMovie.overview }}</span>
+        <div>
+            <h2 *ngIf="headerMovie">{{ headerMovie.title ? headerMovie.title : headerMovie.name }}</h2>  
+            <div class="header__banner-info col-md-12 col-lg-8">
+                <div class="row">
+                    <span class="header__banner-description" *ngIf="headerMovie">{{ headerMovie.overview }}</span>
+                </div>
+            </div>
+        </div>
         <div class="header__buttons">
             <button class="play-button">
                 <span class="material-icons">arrow_right</span>
@@ -26,11 +32,11 @@
             </a>
 
             <ul>
-                <li [ngClass]="{ active: sections.home }" (click)="setSection('home')"><a>Home</a></li>
-                <li [ngClass]="{ active: sections.tvshows }" (click)="setSection('tvshows')"><a>TV Shows</a></li>
-                <li [ngClass]="{ active: sections.movies }" (click)="setSection('movies')"><a>Movies</a></li>
-                <li [ngClass]="{ active: sections.latest }" (click)="setSection('latest')"><a>Latest</a></li>
-                <li [ngClass]="{ active: sections.myList }" (click)="setSection('myList')"><a>My List</a></li>
+                <li routerLinkActive="active"><a routerLink="/browse">Home</a></li>
+                <li routerLinkActive="active"><a routerLink="/tvshows">TV Shows</a></li>
+                <li routerLinkActive="active"><a routerLink="/movies">Movies</a></li>
+                <li routerLinkActive="active"><a routerLink="/latest">Latest</a></li>
+                <li routerLinkActive="active"><a routerLink="/mylist">My List</a></li>
             </ul>
         </div>
 

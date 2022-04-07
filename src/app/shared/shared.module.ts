@@ -10,18 +10,9 @@ import { MaterialModule } from './material/material.module';
 import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
-    declarations: [
-        SliderComponent,
-    ],
-    imports: [
-        MaterialModule,
-        CommonModule,
-        SlickCarouselModule
-    ],
-    providers: [],
-    exports: [
-        SliderComponent,
-        MaterialModule
-    ],
+  declarations: [SliderComponent],
+  imports: [MaterialModule, CommonModule, SlickCarouselModule],
+  providers: [],
+  exports: [SliderComponent, MaterialModule],
 })
-export class SharedModule { }
+export class SharedModule {}

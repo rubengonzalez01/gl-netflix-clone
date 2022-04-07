@@ -5,17 +5,18 @@
         <div class="thumbnails">
             <div class="movie__slider">
                 <button
-                    *ngIf="moveLeftIsVisible()" 
+                    *ngIf="leftArrowVisible" 
                     class="movie__move movie__move-left" 
                     (click)="scrollCarousel('l')">
                     <span class="material-icons-outlined">arrow_back_ios</span>
                 </button>
-                <div class="movie__carousel" id="movie__carousel" #carousel>
+                <div *ngIf="movies.results.length" class="movie__carousel" id="movie__carousel" #carousel>
                     <div 
                         class="slick-item" 
                         *ngFor="let m of movies.results"> 
                         <img 
-                            src="https://image.tmdb.org/t/p/w200{{m?.poster_path}}" 
+                            *ngIf="m.poster_path"
+                            src="https://image.tmdb.org/t/p/w200{{m.poster_path}}" 
                             alt="{{ m.title }}" 
                             title="{{ m.title }}"
                             (click)="showPreview(m)"
@@ -23,7 +24,7 @@
                     </div>
                 </div>
                 <button
-                    *ngIf="moveRightIsVisible()"  
+                    *ngIf="rightArrowVisible"  
                     class="movie__move movie__move-right" 
                     (click)="scrollCarousel('r')">
                     <span class="material-icons-outlined">arrow_forward_ios</span>

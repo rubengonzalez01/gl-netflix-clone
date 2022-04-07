@@ -9,24 +9,18 @@ import { SharedModule } from '../shared/shared.module';
 import { HeaderComponent } from './components/header/header.component';
 import { MoviePlayerComponent } from './components/movie-player/movie-player.component';
 import { PreviewComponent } from './components/preview/preview.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-    declarations: [
-        HeaderComponent,
-        PreviewComponent,
-        MoviePlayerComponent,
-    ],
-    imports: [
-        YouTubePlayerModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        SharedModule,
-    ],
-    providers: [],
-    exports: [
-        PreviewComponent,
-        MoviePlayerComponent,
-        HeaderComponent
-    ],
+  declarations: [HeaderComponent, PreviewComponent, MoviePlayerComponent],
+  imports: [
+    YouTubePlayerModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    SharedModule,
+    RouterModule,
+  ],
+  providers: [],
+  exports: [PreviewComponent, MoviePlayerComponent, HeaderComponent],
 })
-export class CoreModule { }
+export class CoreModule {}
