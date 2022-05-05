@@ -10,6 +10,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { MoviePlayerComponent } from './components/movie-player/movie-player.component';
 import { PreviewComponent } from './components/preview/preview.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ApiMovieInterceptor } from './interceptors/api-movie.interceptor';
 
 @NgModule({
   declarations: [HeaderComponent, PreviewComponent, MoviePlayerComponent],
@@ -19,8 +21,15 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     SharedModule,
     RouterModule,
+    // HttpClientModule,
   ],
-  providers: [],
+  // providers: [
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: ApiMovieInterceptor,
+  //     multi: true,
+  //   },
+  // ],
   exports: [PreviewComponent, MoviePlayerComponent, HeaderComponent],
 })
 export class CoreModule {}

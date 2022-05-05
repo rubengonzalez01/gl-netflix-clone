@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  api: '0acb0a9294cb3e959804567b5f68eede', //'9357268c262a35e41df4cb3774d28301',
+  api: '0acb0a9294cb3e959804567b5f68eede',
+  token:
+    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzY29wZXMiOlsiYXBpX3JlYWQiLCJhcGlfd3JpdGUiXSwidmVyc2lvbiI6MSwianRpIjoiNDE2NDE5MSIsIm5iZiI6MTY0NzI5OTIzMSwiYXVkIjoiMGFjYjBhOTI5NGNiM2U5NTk4MDQ1NjdiNWY2OGVlZGUiLCJzdWIiOiI2MjA4NTE0NGVmZDNjMjE0MTI4Y2M3MDgifQ.YJq9UPrh70Q_5dVPNbbIEe43PCGnomYvxGbi-ydgFp0',
 };

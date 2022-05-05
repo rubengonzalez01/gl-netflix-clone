@@ -9,8 +9,7 @@ import { Movies, ResultsEntity } from '../models/movies.interface';
 export class MovieService {
   private url = 'https://api.themoviedb.org/3';
   private v4Url = 'https://api.themoviedb.org/4';
-  private accessToken =
-    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzY29wZXMiOlsiYXBpX3JlYWQiLCJhcGlfd3JpdGUiXSwidmVyc2lvbiI6MSwianRpIjoiNDE2NDE5MSIsIm5iZiI6MTY0NzI5OTIzMSwiYXVkIjoiMGFjYjBhOTI5NGNiM2U5NTk4MDQ1NjdiNWY2OGVlZGUiLCJzdWIiOiI2MjA4NTE0NGVmZDNjMjE0MTI4Y2M3MDgifQ.YJq9UPrh70Q_5dVPNbbIEe43PCGnomYvxGbi-ydgFp0';
+  private accessToken = environment.token;
   private api_key = environment.api;
   activeMovie: any;
   movieKey: string = '';

@@ -1,12 +1,13 @@
 // Modules
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
+import { ApiMovieInterceptor } from './core/interceptors/api-movie.interceptor';
 
 // Components
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,9 +15,15 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    HttpClientModule,
+    // HttpClientModule,
   ],
-  providers: [],
+  // providers: [
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: ApiMovieInterceptor,
+  //     multi: true,
+  //   },
+  // ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
